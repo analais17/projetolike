@@ -1,14 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-</ion-content>
+
+
+    <ion-content fullscreen>
+      <ion-card>
+        <img src="{{palestrante.img}}" />
+        <ion-card-header>
+          <ion-card-subtitle>Cantora</ion-card-subtitle>
+          <ion-card-title>{{palestrante.nome}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+         {{palestrante.descricao}}
+        </ion-card-content>
+        <ion-item>
+        <ion-icon name="heart"(click)='like()'></ion-icon>
+        <ion-icon name="close"(click)='like0()'></ion-icon>
+        <ion-badge slot="end" >{{palestrante.likes}}</ion-badge>
+      </ion-item>
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Classificações PD48</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor='let registro of classificacao'>
+          <ion-label>{{registro.classificacao}}</ion-label>
+          <ion-label slot="end">{{registro.nota}}</ion-label>
+        </ion-item>
+        <ion-item>
+        <ion-label>{{registro.classificacao}}</ion-label>
+        <ion-label slot="end">{{registro.nota}}</ion-label>
+        </ion-item>
+       
+      </ion-list>
+      </ion-card>
+      
+    </ion-content>
+
